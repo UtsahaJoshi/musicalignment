@@ -58,6 +58,13 @@ def compute_pianoroll_score(
         return_idxs=True,
         piano_range=True,  # Since we are using only piano music,
         time_div=time_div,
+        time_unit="auto",
+        onset_only=False,
+        note_separation=True,
+        pitch_margin=-1,
+        time_margin=0,
+        remove_silence=True,
+        end_time=None,
     )
     return piano_roll.todense().T, idx
 
@@ -92,6 +99,14 @@ def compute_pianoroll_performance(
         return_idxs=True,
         piano_range=True,  # Since we are using only piano music,
         time_div=time_div,
+        time_unit="auto",
+        onset_only=False,
+        note_separation=True,
+        pitch_margin=-1,
+        time_margin=0,
+        remove_drums=True,
+        remove_silence=True,
+        end_time=None,
     )
 
     # Discard MIDI velocity
