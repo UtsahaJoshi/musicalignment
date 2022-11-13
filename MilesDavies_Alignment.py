@@ -16,6 +16,7 @@ from typing import Union, List
 import numpy as np
 from fastdtw import fastdtw
 from scipy.spatial import distance as sp_dist
+from scipy.spatial.distance import euclidean
 
 from challenge_utils import (
     load_dataset,
@@ -147,7 +148,7 @@ def fast_dynamic_time_warping(
 
     if metric == "euclidean":
         # Use faster implementation
-        dist = 2
+        dist = euclidean
     else:
         dist = getattr(sp_dist, metric)
     dtwd, warping_path = fastdtw(X, Y, dist=dist)
